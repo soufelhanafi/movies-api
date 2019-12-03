@@ -84,6 +84,7 @@ public class MoviesUserServiceImpl implements IMoviesUserService {
 
 		// TODO : prendre les infos *non null* dans accountDetails et les mettre
 		// dans existingAccount
+		// TODO check if he's updating his mail, and is the new mail existe in movies db
 
 		accountDetails.setId(accountId);
 		accountDetails.setModifDate(new Date());

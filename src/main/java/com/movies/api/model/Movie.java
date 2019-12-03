@@ -26,7 +26,7 @@ public class Movie extends AbstractBaseModel{
 	
 	@Column
 	@NotBlank(message = "releaseDate could not be empty")
-	private String name;
+	private String title;
 	
 	@Column
 	@Temporal(TemporalType.TIMESTAMP)
@@ -47,14 +47,36 @@ public class Movie extends AbstractBaseModel{
 	@Column
 	private String languages;
 	
+	@Column
+	private String extrnalId;
 	
-	public String getLanguages() {
-		return languages;
-	}
-
-	public void setLanguages(String languages) {
-		this.languages = languages;
-	}
+	@Column
+	private String overview;
+	
+	@Column
+	private String homepageUrl;
+	
+	@Column
+	private boolean adult;
+	
+	@Column
+	private String imbdId;
+	
+	@Column
+	private long revenue;
+	
+	@Column
+	private long popularity;
+	
+	@Column 
+	private double voteAverage;
+	
+	@Column
+	private double voteCount;
+	
+	@Column
+	private int runtime;
+	
 	
 	public List<String> getLangaugesAsString(String languages) {
 		List<String> list = new ArrayList<String>();
@@ -87,20 +109,12 @@ public class Movie extends AbstractBaseModel{
 		return list;
 	}
 
-	public String getGenre() {
-		return genres;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setGenre(String genre) {
-		this.genres = genre;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Date getReleaseDate() {
@@ -125,6 +139,102 @@ public class Movie extends AbstractBaseModel{
 
 	public void setRottenTomatoesRating(Double rottenTomatoesRating) {
 		this.rottenTomatoesRating = rottenTomatoesRating;
+	}
+
+	public String getGenres() {
+		return genres;
+	}
+
+	public void setGenres(String genres) {
+		this.genres = genres;
+	}
+
+	public String getLanguages() {
+		return languages;
+	}
+
+	public void setLanguages(String languages) {
+		this.languages = languages;
+	}
+
+	public String getExtrnalId() {
+		return extrnalId;
+	}
+
+	public void setExtrnalId(String extrnalId) {
+		this.extrnalId = extrnalId;
+	}
+
+	public String getOverview() {
+		return overview;
+	}
+
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
+
+	public String getHomepageUrl() {
+		return homepageUrl;
+	}
+
+	public void setHomepageUrl(String homepageUrl) {
+		this.homepageUrl = homepageUrl;
+	}
+
+	public boolean isAdult() {
+		return adult;
+	}
+
+	public void setAdult(boolean adult) {
+		this.adult = adult;
+	}
+
+	public String getImbdId() {
+		return imbdId;
+	}
+
+	public void setImbdId(String imbdId) {
+		this.imbdId = imbdId;
+	}
+
+	public long getRevenue() {
+		return revenue;
+	}
+
+	public void setRevenue(long revenue) {
+		this.revenue = revenue;
+	}
+
+	public long getPopularity() {
+		return popularity;
+	}
+
+	public void setPopularity(long popularity) {
+		this.popularity = popularity;
+	}
+
+	public double getVoteAverage() {
+		return voteAverage;
+	}
+
+	public void setVoteAverage(double voteAverage) {
+		this.voteAverage = voteAverage;
+	}
+
+	public double getVoteCount() {
+		return voteCount;
+	}
+
+	public void setVoteCount(double voteCount) {
+		this.voteCount = voteCount;
+	}
+
+	public int getRuntime() {
+		return runtime;
+	}
+
+	public void setRuntime(int runtime) {
+		this.runtime = runtime;
 	}
 
 	

@@ -1,6 +1,5 @@
 package com.movies.api.web;
 
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,39 +24,23 @@ public class MoviesUserController {
 	@Autowired
 	private IMoviesUserRepository taxiClicRepository;
 
-	@PostMapping("/public/accounts")
-	public AccountDTO createNewTaxiClicUser(@RequestBody MoviesUser account) {
+	@PostMapping("/public/user/create")
+	public MoviesUser createNewUser(@RequestBody MoviesUser account) {
 
 		MoviesUser newAccount = this.taxiClicUserService.createNewMoviesUser(account);
 
-		return this.accountToDTO(newAccount);
+		return newAccount;
 
 	}
 
-	@GetMapping("/private/accounts")
-	public AccountDTO getCurrentTaxiClicUser() {
+	@GetMapping("/private/user/get")
+	public MoviesUser getCurrentUser() {
 
 		String userEmail = (String) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		MoviesUser findByEmail = taxiClicRepository.findByEmail(userEmail);
+		MoviesUser user = taxiClicRepository.findByEmail(userEmail);
 
-		return this.accountToDTO(findByEmail);
+		return user;
 
 	}
 
-	/**
-	 * Account to DTO.
-	 * 
-	 * Account est un objet sensible qu'il ne faut jamais retourner au front !
-	 *
-	 * @param account the account
-	 * @return the account DTO
-	 */
-	protected AccountDTO accountToDTO(MoviesUser account) {
-
-		AccountDTO dto = new AccountDTO();
-
-		BeanUtils.copyProperties(account, dto);
-
-		return dto;
-	}
 }
